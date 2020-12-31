@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 16;        /* gaps between windows */
@@ -14,7 +14,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#aaaaaa";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#B45BCF"; // purple
+static const char col_cyan[]        = "#B45BCF";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -38,8 +38,6 @@ static const Rule rules[] = {
 static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-
-
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -65,19 +63,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *editor[]  = { "emacs", NULL };
 static const char *browser[]  = { "firefox", NULL };
-static const char *fileman[]  = { "thunar", NULL };
-static const char *volumeupcmd[]     = { "dwm_volume_up",          NULL };
-static const char *volumedowncmd[]   = { "dwm_volume_down",        NULL };
-static const char *volumemutecmd[]   = { "dwm_volume_toggle_mute", NULL };
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-        { MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_x,      spawn,          {.v = editor } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
-	{ MODKEY,                       XK_f,      spawn,          {.v = fileman } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -88,7 +80,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -111,9 +103,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { 0,                            XF86XK_AudioRaiseVolume, spawn,         {.v = volumeupcmd } },
-    { 0,                            XF86XK_AudioLowerVolume, spawn,         {.v = volumedowncmd } },
-    { 0,                            XF86XK_AudioMute,        spawn,         {.v = volumemutecmd } },
 };
 
 /* button definitions */
