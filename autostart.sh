@@ -1,4 +1,8 @@
 #!/bin/bash
 picom &
 nitrogen --restore &
-slstatus &
+dwmblocks &
+volumeicon &
+nm-applet &
+/usr/bin/emacs --daemon &
+# slstatus &
