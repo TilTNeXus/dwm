@@ -10,11 +10,11 @@ static const char *fonts[]          = { "Noto Sans Medium:size=11" };
 // static const char *fonts[]          = { "JetBrains Mono Medium:size=10" };
 static const char dmenufont[]       = "Noto Sans Medium:size=11";
 // static const char dmenufont[]       = "JetBrains Mono Medium:size=10";
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#282a36";
 static const char col_gray2[]       = "#aaaaaa";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#B45BCF"; // purple
+static const char col_cyan[]        = "#bd93f9"; // purple
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -66,7 +66,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-x", "1666", "-y", "23.5", "-z", "250", NULL };
 // static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st", "-e", "fish", NULL };
 static const char *editor[]  = { "emacs", NULL };
 static const char *browser[]  = { "firefox", NULL };
 static const char *fileman[]  = { "thunar", NULL };
@@ -130,7 +130,7 @@ static Button buttons[] = {
 	//{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button1,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	//{ ClkTagBar,            0,              Button1,        view,           {0} },
 	//{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	//{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
